@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Maincontroller;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Maincontroller::class , 'index']);
+
+Route::get('registration', [AuthController::class, 'sign_up']);
+Route::post('/sign_up_validate', [AuthController::class, 'sign_up_validate']);
+
+Route::get('auth', [AuthController::class, 'sign_in']);
+Route::post('/sign_in_validate', [AuthController::class, 'sign_in_validate']);
