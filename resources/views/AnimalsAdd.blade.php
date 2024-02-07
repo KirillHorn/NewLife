@@ -12,41 +12,41 @@
     <form method="POST" action="/sign_up_validate" class="form_reg">
       @csrf
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Имя</label>
-        <input type="text" name="name" class="form-control" id="exampleInputPassword1">
-        <p>@error('name') {{$message}}  @enderror</p>
+        <label for="exampleInputPassword1" class="form-label">Кличка животного (необязательно)</label>
+        <input type="text" name="name_animals" class="form-control" id="exampleInputPassword1">
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Фамилия</label>
-        <input type="text" name="surname" class="form-control" id="exampleInputPassword1">
-        <p>@error('surname') {{$message}}  @enderror</p>
+        <label for="floatingTextarea">Обстоятельство</label>
+          <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+          <p>@error('description') {{$message}}  @enderror</p>
       </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
-          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <p>@error('email') {{$message}}  @enderror</p>
+          <label for="exampleInputEmail1" class="form-label">Район</label>
+          <input type="text" name="region" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <p>@error('region') {{$message}}  @enderror</p>
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Телефон</label>
-          <input type="phone" name="phone" class="form-control phone" id="tel" aria-describedby="emailHelp">
-          <p>@error('phone') {{$message}}  @enderror</p>
+          <label for="exampleInputEmail1" class="form-label">Дата нахождения</label>
+          <input type="date" name="date_location	" class="form-control phone" id="tel" aria-describedby="emailHelp">
+          <p>@error('date_location') {{$message}}  @enderror</p>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Пароль</label>
-          <input type="password" name="password" class="form-control" id="exampleInputEmail1">
-          <p>@error('password') {{$message}}  @enderror</p>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Повторите пароль</label>
-          <input type="password" name="password_reset" class="form-control" id="exampleInputPassword1">
-          <p>@error('password_reset') {{$message}}  @enderror</p>
+          <label for="floatingSelectGrid">Вид животного</label>
+          <select class="form-select" id="floatingSelectGrid" name="breed"  style="height: 40px; font-size:15px;">
+            <option selected  style="font-size:15px;" >Выберите вид животного</option>
+            @foreach ($breeds as $breed)
+            <option value="{{$breed->id}}" style="font-size:15px;">{{$breed->title}}</option>
+            @endforeach
+            <p>@error('breed') {{$message}}  @enderror</p>
+          </select>
         </div>
         <div class="mb-3 form-check">
     <input type="checkbox" name="check" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <label class="form-check-label" for="exampleCheck1">Обработка персональной информации</label>
     <p>@error('check') {{$message}}  @enderror</p>
   </div>
-        <button type="submit" class="btn btn-primary button_auth" >Зарегистрироваться</button>
+        <button type="submit" class="button_auth btn btn-primary" style="width: 300px; margin-left: 20%;
+    background-color: #000;" >Добавить объявление</button>
       </form>
 
 
@@ -59,3 +59,7 @@
 
 
 
+
+
+ 
+   

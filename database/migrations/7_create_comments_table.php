@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
-use Database\Seeders\Breed;
 
 return new class extends Migration
 {
@@ -13,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('breeds', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('text_comment');
+            $table->string('img');
+            $table->foreignId('animals_id')->references('id')->on('animalsses');
             $table->timestamps();
         });
-
-        Artisan::call('db:seed', ['--class'=>Breed::class]);
     }
 
     /**
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('breeds');
+        Schema::dropIfExists('comments');
     }
 };

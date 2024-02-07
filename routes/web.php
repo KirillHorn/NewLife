@@ -1,9 +1,10 @@
 <?php
 
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Maincontroller;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimalsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::post('/sign_up_validate', [AuthController::class, 'sign_up_validate']);
 
 Route::get('auth', [AuthController::class, 'sign_in']);
 Route::post('/sign_in_validate', [AuthController::class, 'sign_in_validate']);
+
+Route::get('AnimalsAdd', [AnimalsController::class, 'AnimalsAdd_view']);
+Route::post('/AnimalsAdd_validate', [AnimalsController::class, 'AnimalsAdd_validate']);
+

@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('status')->references('id')->on('statusses');
             $table->foreignId('users')->references('id')->on('users');
+            $table->foreignId('breed_id')->references('id')->on('breeds');
             $table->string('description');
             $table->string('name_animals')->nullable();
+            $table->date('date_location');
             $table->string('region');
             $table->timestamps();
         });
