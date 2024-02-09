@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Breeds;
 use App\Models\animalss;
+use App\Models\fotoanimals;
 
 class AnimalsController extends Controller
 {
@@ -18,14 +19,16 @@ class AnimalsController extends Controller
         $request->validate([
             "description" => "required",
             "region" => "required",
-            "date_location" => "required",
+            "date" => "required",
             "breed" => "required",
+            "foto" => "required",
             "check" => "required",
         ], [
             "description.required" => "Поле обязательно для заполнения",
             "region.required" => "Поле обязательно для заполнения",
             "date_location.required" => "Поле обязательно для заполнения",
             "breed.required" => "Поле обязательно для заполнения",
+            "foto.required" => "Поле обязательно для заполнения",
             "check.required" => "Поставьте галочку напротив обработки персональных данных!",
         ]);
 
@@ -35,16 +38,27 @@ class AnimalsController extends Controller
             'name_animals' => $animalsInfo['name_animals'],
             'description' => $animalsInfo['description'],
             'region' => $animalsInfo['region'],
-            'date_location' => $animalsInfo['date_location'],
+            'date_location' => $animalsInfo['date'],
             'breed_id' => $animalsInfo['breed'],
             'status' => 2,
             'users' => $author, 
         ]);
-
-        if ($userAdd) {
-            return redirect("/")->with('yes', 'Регистрация прошла удачно, авторизируйтесь!');
+        $photo=$request->file('foto');
+        if(isset($photo)){
+            foreach ($photo as $photos){
+                $name = $photos->hashName();
+                $patch = $photos->store('public/img');
+                fotoanimals::create([
+                    'id_animal' => $animalsAdd->id,
+                    'img' => $name,
+                ]);
+            }
+        }
+        if($animalsAdd && $photo) {
+            return redirect()->back()->with('yes', 'Добавление прошло успешно!');
         } else {
-            return redirect()->back()->with('error', 'Произошла ошибка! Проверьте логин или пароль!');
+            return redirect()->back()->with('error', 'Произошла ошибка!');
         }
     }
+            
 }

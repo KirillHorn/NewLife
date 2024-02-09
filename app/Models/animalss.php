@@ -14,6 +14,7 @@ class animalss extends Model
         'users',
         'breed_id',
         'description',
+        'date_location',
         'name_animals',
         'region'
     ];
@@ -28,6 +29,11 @@ class animalss extends Model
 
     public function status_model() {
         return $this->belongsTo(statusses::class, 'status','id');
+    }
+
+    
+    public function foto_model() {
+        return $this->hasMany(fotoanimals::class, 'id_animal','id');
     }
 
 }

@@ -8,8 +8,15 @@
 
     </div>
     @endif
+
+    @if (session("yes"))
+    <div  id="message"  class="message">
+    {{session("yes")}}
+
+    </div>
+    @endif
     <h1 class="text-center" style="color:#263248; padding-top:40px;">Добавить объявление</h1>
-    <form method="POST" action="/sign_up_validate" class="form_reg">
+    <form method="POST" action="/AnimalsAdd_validate" class="form_reg" enctype="multipart/form-data" >
       @csrf
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Кличка животного (необязательно)</label>
@@ -26,9 +33,19 @@
           <p>@error('region') {{$message}}  @enderror</p>
         </div>
         <div class="mb-3">
+
+           <label class="form-label" for="photo">Фото</label>
+          <label for="photo" class="c-post-cstm-input">
+          <input type="file" name="foto[]" class="form-control" id="photo"  multiple>
+          <span id="photo-fake">Выберите фото</span>
+          </label>
+
+          <p>@error('foto') {{$message}}  @enderror</p>
+        </div>
+        <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Дата нахождения</label>
-          <input type="date" name="date_location	" class="form-control phone" id="tel" aria-describedby="emailHelp">
-          <p>@error('date_location') {{$message}}  @enderror</p>
+          <input type="date" name="date" class="form-control" aria-describedby="emailHelp">
+          <p>@error('date') {{$message}}  @enderror</p>
         </div>
         <div class="mb-3">
           <label for="floatingSelectGrid">Вид животного</label>
@@ -49,10 +66,19 @@
     background-color: #000;" >Добавить объявление</button>
       </form>
 
-
     </div>
+
+
     <script>
- $(".phone").mask("+7(999)999-99-99");
+    document.getElementById("photo").addEventListener("change", function() {
+            var fileInput = this;
+            var spanElement = document.getElementById("photo-fake");
+            if (fileInput.files && fileInput.files.length > 0) {
+                spanElement.textContent = "Выбрано файлов: " + fileInput.files.length;
+            } else {
+                spanElement.textContent = "Выберите фото";
+            }
+        });
     </script>
 </body>
 </html>
