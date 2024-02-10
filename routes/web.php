@@ -28,3 +28,4 @@ Route::post('/sign_in_validate', [AuthController::class, 'sign_in_validate']);
 Route::get('AnimalsAdd', [AnimalsController::class, 'AnimalsAdd_view']);
 Route::post('/AnimalsAdd_validate', [AnimalsController::class, 'AnimalsAdd_validate']);
 
+Route::get('/{id}/animalsPost', [AnimalsController::class, 'animalsPost']);

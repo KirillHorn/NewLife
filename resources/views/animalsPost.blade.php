@@ -11,18 +11,9 @@
         </div>
         <div class="carousel-inner">
 
-            @foreach ($animal as $key => $animals )
+            @foreach ( $animal->foto_model as $key => $foto)
           <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-
-                    @foreach ( $animals->foto_model as $foto)
             <img src="/storage/img/{{$foto->img}}" class="d-block w-100 foto_slider" alt="...">
-                     @break
-                     @endforeach
-            <div class="carousel-caption d-none d-md-block">
-              <h5>{{$animals->breeds_model->title}}</h5>
-              <p>{{$animals->description}}</p>
-              <a href="/{{$animals->id}}/animalsPost" class="btn btn-warning" style="margin-bottom: 20px;">Поподробнее</a>
-            </div>
           </div>
           @endforeach
         </div>
@@ -37,6 +28,12 @@
       </div>
     </div>
     </section>
+    <div>
+        <p>{{$animal->description}} </p>
+        @if ($animal-> name_animals != null)
+        <p>{{$animal->name_animals}} </p>
+        @endif
+    </div>
 
 </body>
 

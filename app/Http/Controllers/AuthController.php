@@ -48,7 +48,7 @@ class AuthController extends Controller
             'roles' => 1,
         ]);
         if ($userAdd) {
-            return redirect("/auth")->with('reg', 'Регистрация прошла удачно, авторизируйтесь!');
+            return redirect("/auth")->with('success', 'Регистрация прошла удачно, авторизируйтесь!');
         } else {
             return redirect()->back()->with('error', 'Произошла ошибка! Проверьте логин или пароль!');
         }
@@ -68,9 +68,9 @@ class AuthController extends Controller
             "password" => $authInfo['password'],
         ])) {
             if (Auth::user()->role == 2) {
-                return redirect('/admin/index')->with('admin', 'вы зашли в админ панель!');
+                return redirect('/admin/index')->with('success', 'вы зашли в админ панель!');
             } else {
-                return redirect('/')->with('user', 'вы зашли в админ панель!');
+                return redirect('/')->with('success', 'вы зарегались!');
             }
         } else {
             return redirect()->back()->with('error', 'Произошла ошибка! Проверьте Почту или пароль!');

@@ -41,7 +41,7 @@ class AnimalsController extends Controller
             'date_location' => $animalsInfo['date'],
             'breed_id' => $animalsInfo['breed'],
             'status' => 2,
-            'users' => $author, 
+            'users' => $author,
         ]);
         $photo=$request->file('foto');
         if(isset($photo)){
@@ -55,10 +55,14 @@ class AnimalsController extends Controller
             }
         }
         if($animalsAdd && $photo) {
-            return redirect()->back()->with('yes', 'Добавление прошло успешно!');
+            return redirect()->back()->with('success', 'Добавление прошло успешно!');
         } else {
             return redirect()->back()->with('error', 'Произошла ошибка!');
         }
     }
-            
+
+    public function animalsPost($id) {
+        $animalInfo=animalss::find($id);
+        return view('animalsPost', ["animal" => $animalInfo]);
+    }
 }
