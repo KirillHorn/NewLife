@@ -1,7 +1,7 @@
 <x-header />
 
-<section>
-    <div class="container">
+<section style="background-color:  RGBA(var(--bs-dark-rgb);">
+    <div class="container" style="padding-top: 20px" >
 
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -37,7 +37,29 @@
       </div>
     </div>
     </section>
+    <section>
+        <div class="container">
+            <div class="flexbox">
+                <div class="search">
+                  <h1 class="text-center">Поиск по животным</h1>
+                  <form method="POST" action="/">
 
+
+                    <input type="text" placeholder="Search . . ." required>
+                   <button class=" btn btn-warning" style="height: 50px;">Найти</button>
+
+
+                </form>
+                </div>
+              </div>
+
+
+        </div>
+
+      </section>
+
+      <script>
+        </script>
 </body>
 
 </html>
