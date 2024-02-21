@@ -8,7 +8,7 @@
 
      </div>
      <div class="container">
-         <h1 class="text-center" style="color:#263248; padding-top:40px;">Войти</h1>
+         <h1 class="text-center" style="padding-top:40px;">Войти</h1>
          <form method="POST" action="/sign_in_validate" class="form_reg">
              @csrf
              <div class="mb-3">

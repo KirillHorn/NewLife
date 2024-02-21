@@ -64,7 +64,78 @@
 </section>
 
 <section >
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Факт 1 -->
+            <div class="col-md-4">
+                <div class="card card_info" style="border: 1px solid #eea236;">
+                    <img src="/img/free-icon-pets-allowed-3372417.png" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center" >Помогли найти более 500 животных по всей стране!</h5>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- Факт 2 -->
+            <div class="col-md-4" style="height:400px;">
+                <div class="card card_info">
+                    <img src="/img/free-icon-pets-3574755.png" class="card-img-top" alt="Image 2" >
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Более трех лет способствуем возвращению питомцев к хозяевам</h5>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- Факт 3 -->
+            <div class="col-md-4">
+                <div class="card card_info" style="border: 1px solid #eea236;">
+                    <img src="/img/free-icon-work-from-home-3015343.png" class="card-img-top" alt="Image 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center" >Все услуги оказываются бесплатно. Поможем найти вашего питомца!</h5>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</section>
+
+<section>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Карточка 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="animal1.jpg" class="card-img-top" alt="Фото животного">
+                    <div class="card-body">
+                        <h5 class="card-title">Котенок</h5>
+                        <p class="card-text">Район: Центральный</p>
+                        <p class="card-text">Телефон: +7 123 456 7890</p>
+                        <p class="card-text">Дата размещения: 2024-02-19</p>
+                        <p class="card-text">Добавлено: Зарегистрированным пользователем</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Карточка 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="animal2.jpg" class="card-img-top" alt="Фото животного">
+                    <div class="card-body">
+                        <h5 class="card-title">Собака</h5>
+                        <p class="card-text">Район: Северный</p>
+                        <p class="card-text">Телефон: +7 987 654 3210</p>
+                        <p class="card-text">Дата размещения: 2024-02-18</p>
+                        <p class="card-text">Добавлено: Незарегистрированным пользователем</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Добавьте дополнительные карточки по необходимости -->
+    
+        </div>
+    </div>
 </section>
 
 </body>
