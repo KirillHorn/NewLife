@@ -63,81 +63,168 @@
 </div>
 </section>
 
-<section >
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Факт 1 -->
-            <div class="col-md-4">
-                <div class="card card_info" style="border: 1px solid #eea236;">
-                    <img src="/img/free-icon-pets-allowed-3372417.png" class="card-img-top" alt="Image 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" >Помогли найти более 500 животных по всей стране!</h5>
-                       
-                    </div>
+<section>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Факт 1 -->
+        <div class="col-md-4">
+            <div class="card card_info" style="border: 1px solid #eea236;">
+                <img src="/img/free-icon-pets-allowed-3372417.png" class="card-img-top" alt="Image 1">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Помогли найти более 500 животных по всей стране!</h5>
+
                 </div>
             </div>
-            <!-- Факт 2 -->
-            <div class="col-md-4" style="height:400px;">
-                <div class="card card_info">
-                    <img src="/img/free-icon-pets-3574755.png" class="card-img-top" alt="Image 2" >
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Более трех лет способствуем возвращению питомцев к хозяевам</h5>
-                       
-                    </div>
+        </div>
+        <!-- Факт 2 -->
+        <div class="col-md-4" style="height:400px;">
+            <div class="card card_info">
+                <img src="/img/free-icon-pets-3574755.png" class="card-img-top" alt="Image 2">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Более трех лет способствуем возвращению питомцев к хозяевам
+                    </h5>
+
                 </div>
             </div>
-            <!-- Факт 3 -->
-            <div class="col-md-4">
-                <div class="card card_info" style="border: 1px solid #eea236;">
-                    <img src="/img/free-icon-work-from-home-3015343.png" class="card-img-top" alt="Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" >Все услуги оказываются бесплатно. Поможем найти вашего питомца!</h5>
-                        
-                    </div>
+        </div>
+        <!-- Факт 3 -->
+        <div class="col-md-4">
+            <div class="card card_info" style="border: 1px solid #eea236;">
+                <img src="/img/free-icon-work-from-home-3015343.png" class="card-img-top" alt="Image 3">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Все услуги оказываются бесплатно. Поможем найти вашего
+                        питомца!</h5>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </section>
 
 <section>
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Карточка 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="animal1.jpg" class="card-img-top" alt="Фото животного">
-                    <div class="card-body">
-                        <h5 class="card-title">Котенок</h5>
-                        <p class="card-text">Район: Центральный</p>
-                        <p class="card-text">Телефон: +7 123 456 7890</p>
-                        <p class="card-text">Дата размещения: 2024-02-19</p>
-                        <p class="card-text">Добавлено: Зарегистрированным пользователем</p>
-                    </div>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Карточка 1 -->
+        <div class="col-md-4 mb-4">
+            @foreach ($animals_status as $animalss)
+                <div class="card bg_ellow">
+                    @foreach ($animalss->foto_model as $foto)
+                        <img src="/storage/img/{{ $foto->img }}" class="card-img-top" alt="Фото животного">
+                    @break
+                @endforeach
+                <div class="card-body card_animal">
+                    <h5 class="card-title" style="color: #333;">{{ $animalss->breeds_model->title }}</h5>
+                    <p class="card-text">Район: {{ $animalss->region }}</p>
+                    <p class="card-text">Телефон: {{ $animalss->users_model->phone }}</p>
+                    <p class="card-text">Дата размещения: {{ $animalss->created_at }}</p>
+                    <p class="card-text">Добавлено: {{ $animalss->users_model->name }}</p>
                 </div>
             </div>
-    
-            <!-- Карточка 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="animal2.jpg" class="card-img-top" alt="Фото животного">
-                    <div class="card-body">
-                        <h5 class="card-title">Собака</h5>
-                        <p class="card-text">Район: Северный</p>
-                        <p class="card-text">Телефон: +7 987 654 3210</p>
-                        <p class="card-text">Дата размещения: 2024-02-18</p>
-                        <p class="card-text">Добавлено: Незарегистрированным пользователем</p>
+        @endforeach
+    </div>
+
+
+    <!-- Добавьте дополнительные карточки по необходимости -->
+
+</div>
+</div>
+</section>
+
+<section>
+<div class="container mt-5">
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <form>
+            <div class="form-group" style="width: 100%;">
+                <label for="district">Район:</label>
+                <input type="text" class="form-control " id="district" placeholder="Введите район">
+            </div>
+            <div class="form-group">
+                <label for="animalType">Вид животного:</label>
+                <select class="form-control" id="animalType" style="color: #333">
+                    <option value="cat" style="color: #333">Кошка</option>
+                    <option value="dog" style="color: #333">Собака</option>
+                    <option value="squirrel" style="color: #333">Суслик</option>
+                    <option value="hamster" style="color: #333">Хомяк</option>
+                    <!-- Добавьте дополнительные опции по необходимости -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="searchText">Текст для поиска:</label>
+                <input type="text" class="form-control" id="searchText"
+                    placeholder="Введите текст для поиска">
+            </div>
+            <button type="submit" class="btn btn-warning" style="width: 20%; margin-left:40%;">Поиск
+                питомца</button>
+        </form>
+    </div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container mt-5">
+<div class="koguvcavis-varazdel">
+    <div class="sestim-donials">
+        <h1>Отзывы</h1>
+        <div class="sectionesag"></div>
+        <div class="sagestim-lonials">
+            <div class="vemotau-vokusipol">
+                <div class="testimonial">
+                    <img src="https://zornet.ru/_fr/83/7890600.jpg" alt="">
+                    <div class="gecedanam">Антон Попов</div>
+                    <div class="apogered-gselected">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
+
+                    <p>Здесь первое описание. Продолжение.</p>
                 </div>
             </div>
-    
-            <!-- Добавьте дополнительные карточки по необходимости -->
-    
+
+            <div class="vemotau-vokusipol">
+                <div class="testimonial">
+                    <img src="https://zornet.ru/_fr/83/2047084.jpg" alt="">
+                    <div class="gecedanam">Дмитрий Атрохов</div>
+                    <div class="apogered-gselected">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <p>Второй отзыв. Его продолжение.</p>
+                </div>
+            </div>
+
+            <div class="vemotau-vokusipol">
+                <div class="testimonial">
+                    <img src="https://zornet.ru/_fr/83/5640570.jpg" alt="">
+                    <div class="gecedanam">Каспер Волков</div>
+                    <div class="apogered-gselected">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <p>Третье описание. На отзыв.
+                    </p>
+                </div>
+            </div>
         </div>
+
     </div>
 </section>
 
+<x-footer/>
 </body>
 
 </html>

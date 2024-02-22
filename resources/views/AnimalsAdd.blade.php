@@ -1,5 +1,5 @@
 
-  
+
     <x-header/>
     <div class="container">
     @if (session("error"))
@@ -15,7 +15,7 @@
 
     </div>
     @endif
-    <h1 class="text-center" style="color:#263248; padding-top:40px;">Добавить объявление</h1>
+    <h1 class="text-center" style="padding-top:40px;">Добавить объявление</h1>
     <form method="POST" action="/AnimalsAdd_validate" class="form_reg" enctype="multipart/form-data" >
       @csrf
       <div class="mb-3">
@@ -87,5 +87,4 @@
 
 
 
- 
-   
+
