@@ -36,4 +36,8 @@ class animalss extends Model
         return $this->hasMany(fotoanimals::class, 'id_animal','id');
     }
 
+    public function comment_id() {
+        return $this->hasMany(Comment::class, 'id_animal','id');
+    }
+
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Breeds;
 use App\Models\animalss;
 use App\Models\fotoanimals;
+use App\Models\Comment;
 
 class AnimalsController extends Controller
 {
@@ -63,6 +64,43 @@ class AnimalsController extends Controller
 
     public function animalsPost($id) {
         $animalInfo=animalss::find($id);
-        return view('animalsPost', ["animal" => $animalInfo]);
+        $animalsComment=Comment::where('animals_id',$id)->get();
+        return view('animalsPost', ["animal" => $animalInfo, 'comment' => $animalsComment]);
+    }
+
+    public function comment_Add(Request $request, $id) {
+        $comment=$request->all();
+        $photo=$request->file('foto');
+        $name = $photo->hashName();
+         $patch = $photo->store('public/img');
+         $author = Auth::user()->id;
+
+         $commentAdd=Comment::create([
+            'text_comment' => $comment['text_comment'],
+            'img' => $name,
+            'animals_id' => $id,
+            'users_id' => $author,
+        ]);
+
+        if($commentAdd ) {
+            return redirect()->back()->with('success', 'Добавление прошло успешно!');
+        } else {
+            return redirect()->back()->with('error', 'Произошла ошибка!');
+        }
+
+    }
+    public function Poisk() {
+        $animals_status=animalss::with('foto_model')->paginate(10);
+        $breeds=breeds::all();
+        return view('Poisk', compact('animals_status'), ['breeds' => $breeds]);
+    }
+
+    public function Poisk_post(Request $request) {
+        $poisk=$request->all();
+        $animals_status=animalss::with('foto_model')->where('breed_id',$poisk['breeds'])->where('region',$poisk['region'])->take(6)->get();
+        if ($animals_status) {
+            $breeds=breeds::all();
+            return view('Poisk', compact('animals_status'), ['breeds' => $breeds]);
+        }
     }
 }

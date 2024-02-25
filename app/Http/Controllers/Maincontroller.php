@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\animalss;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class Maincontroller extends Controller
@@ -12,6 +13,8 @@ class Maincontroller extends Controller
 
         $animals_status=animalss::with('foto_model')->where("status", 3)->take(6)->get();
 
-        return view ('index', ['animal' => $animals, 'animals_status' => $animals_status]);
+        $comment=Comment::with('user_id')->take(3)->get();
+ 
+        return view ('index', ['animal' => $animals, 'animals_status' => $animals_status, 'comment' => $comment]);
     }
 }

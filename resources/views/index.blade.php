@@ -65,9 +65,9 @@
 
 <section>
 <div class="container mt-5">
-    <div class="row">
+    <div class="row ">
         <!-- Факт 1 -->
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-top: 20px;">
             <div class="card card_info" style="border: 1px solid #eea236;">
                 <img src="/img/free-icon-pets-allowed-3372417.png" class="card-img-top" alt="Image 1">
                 <div class="card-body">
@@ -77,7 +77,7 @@
             </div>
         </div>
         <!-- Факт 2 -->
-        <div class="col-md-4" style="height:400px;">
+        <div class="col-md-4" style="height:400px; margin-top: 20px;">
             <div class="card card_info">
                 <img src="/img/free-icon-pets-3574755.png" class="card-img-top" alt="Image 2">
                 <div class="card-body">
@@ -88,7 +88,7 @@
             </div>
         </div>
         <!-- Факт 3 -->
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-top: 20px;">
             <div class="card card_info" style="border: 1px solid #eea236;">
                 <img src="/img/free-icon-work-from-home-3015343.png" class="card-img-top" alt="Image 3">
                 <div class="card-body">
@@ -170,11 +170,12 @@
     <div class="sestim-donials">
         <h1>Отзывы</h1>
         <div class="sectionesag"></div>
+        @foreach ($comment as $comments)
         <div class="sagestim-lonials">
             <div class="vemotau-vokusipol">
                 <div class="testimonial">
-                    <img src="https://zornet.ru/_fr/83/7890600.jpg" alt="">
-                    <div class="gecedanam">Антон Попов</div>
+                    <img src="/storage/img/{{$comments->img}}" alt="">
+                    <div class="gecedanam">{{$comments->user_id->name}}</div>
                     <div class="apogered-gselected">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -183,42 +184,14 @@
                         <i class="fas fa-star"></i>
                     </div>
 
-                    <p>Здесь первое описание. Продолжение.</p>
+                    <p>{{$comments->text_comment}}</p>
                 </div>
+                @endforeach
             </div>
 
-            <div class="vemotau-vokusipol">
-                <div class="testimonial">
-                    <img src="https://zornet.ru/_fr/83/2047084.jpg" alt="">
-                    <div class="gecedanam">Дмитрий Атрохов</div>
-                    <div class="apogered-gselected">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+         
 
-                    <p>Второй отзыв. Его продолжение.</p>
-                </div>
-            </div>
-
-            <div class="vemotau-vokusipol">
-                <div class="testimonial">
-                    <img src="https://zornet.ru/_fr/83/5640570.jpg" alt="">
-                    <div class="gecedanam">Каспер Волков</div>
-                    <div class="apogered-gselected">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-
-                    <p>Третье описание. На отзыв.
-                    </p>
-                </div>
-            </div>
+  
         </div>
 
     </div>

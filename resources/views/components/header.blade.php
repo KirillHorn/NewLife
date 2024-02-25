@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <x-alerts></x-alerts>
 </head>
-<body style="    background-color: RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))!important;">
+<body style=" background-color: RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))!important;">
 <header class="p-3 text-bg-dark">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -23,18 +23,16 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="AnimalsAdd" class="nav-link px-2 text-white">Добавить объявление</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Поиск животных</a></li>
+          <li><a href="/Poisk" class="nav-link px-2 text-white">Поиск животных</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Отзывы</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
+ 
 
         <div class="text-end">
           @auth
-          <a  type="button" class="btn btn-outline-light me-2">Личный кабинет</a>
-          <a type="button" class="btn btn-warning">Выход</a>
+          <a  href="personalCub" type="button" class="btn btn-outline-light me-2">Личный кабинет</a>
+          <a href="sign_out" type="button" class="btn btn-warning">Выход</a>
           @endauth
 
           @guest

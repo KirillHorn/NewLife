@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -67,13 +68,38 @@ class AuthController extends Controller
             "email" => $authInfo['email'],
             "password" => $authInfo['password'],
         ])) {
-            if (Auth::user()->role == 2) {
-                return redirect('/admin/index')->with('success', 'вы зашли в админ панель!');
+            if (Auth::user()->roles == 2) {
+                return redirect('/admin')->with('success', 'вы зашли в админ панель!');
             } else {
-                return redirect('/')->with('success', 'вы зарегались!');
+                return redirect('/')->with('success', 'вы зашли!!');
             }
         } else {
             return redirect()->back()->with('error', 'Произошла ошибка! Проверьте Почту или пароль!');
         }
+    }
+
+    public function sign_out()
+    {
+        Session::flush();
+        Auth::logout();
+        return redirect('/');
+    }
+
+    public function personalCub() {
+        return view('personalCub');
+    }
+    public function Phone(Request $request) {
+        $phone = $request->input('phone');
+        $user = Auth::user();
+        $user->phone = $phone;
+        $user->save();
+       return redirect()->back()->with('success','Редактирование телефона успешно!');
+    }
+    public function Email(Request $request) {
+        $email = $request->input('email');
+        $user = Auth::user();
+        $user->email = $email;
+        $user->save();
+       return redirect()->back()->with('success','Редактирование телефона успешно!');
     }
 }

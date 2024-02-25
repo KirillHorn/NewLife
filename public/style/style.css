@@ -199,5 +199,107 @@ header {
     color: #ffffff;
 }
 .nav {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid  #eea236;
+}
+.comment_main {
+    color: #ffffff;
+  
+    background-color:  #eea236;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+}
+.comment_logo {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 30px;
+  
+}
+.comment_text {
+    width: 90%;
+    margin-left: 15px;
+    height: 40px;
+    background-color:  #eea236;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.comment_text:focus {
+    outline: none;
+    color: #ffffff;
+}
+.comment_text::placeholder {
+    color: #ffffff;
+}
+.comment_add {
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color:  #eea236;
+    border: 1px solid #ffffff;
+}
+.comment_add:active {
+    background-color: #eea236;    
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+.comment_file {
+    width: 20%;
+margin-top: 8px;
+   height: 40px;
+}
+.comment_users {
+    padding-left: 10px;
+    font-size: 22px;
+
+}
+.comment_users p:first-child  {
+    font-size: 26px;
+    
+    font-weight: 500;
+  
+}
+.img_comment {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.ads-container {
+    margin-top: 30px;
+}
+
+.ad-status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.ad-actions {
+    margin-top: 10px;
+}
+
+.ad-actions button {
+    margin-right: 10px;
+}
+
+.ad img {
+    max-width: 50%;
+    /* Сделать изображение адаптивным к ширине контейнера */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.card_admin p {
+    color: #000;
+}
+.personal-settings a {
+    color: #000;
+}
+.personal-settings {
+    border: 1px solid #eea236;
 }
