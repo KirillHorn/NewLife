@@ -27,7 +27,7 @@
             </form> 
           </p>
             <p>Имя: {{Auth::user()->name}}</p>
-            <p>Количество добавленных объявлений: 10</p>
+            <p>Количество добавленных объявлений: {{Auth::user()->animalsCount()}}</p>
             <p>Количество животных, вернувшихся к хозяевам: 5</p>
             <p>Дата регистрации: {{Auth::user()->created_at}}</p>
             <p>Дней с момента регистрации: 365</p>
@@ -35,20 +35,25 @@
 
         <div class="ads-container">
             <h2>Объявления пользователя</h2>
-
+            @foreach ($userAnimal as $animals)
             <div class="ad">
-                <p>Статус: Активно</p>
-                <p>Район: Центральный</p>
-                <p>Дата добавления: 10.02.2024</p>
-                <p>Дополнительная информация: Порода: сиамская кошка, без клейма</p>
-                <img src="/images/2894c6e765f0c46dd633c2649ec56b2e.jpeg" alt="2894c6e765f0c46dd633c2649ec56b2e.jpeg">
+                <p>Статус: {{ $animals->status_model->title }}</p>
+                <p>Район:  {{ $animals->region }}</p>
+                <p>Дата добавления: {{ $animals->date_location }}</p>
+                <p>Дополнительная информация: {{ $animals->description }} Порода: {{ $animals->breeds_model->title }}</p>
+                @foreach ($animals->foto_model as $foto)
+                            <img src="/storage/img/{{ $foto->img }}" class="d-block w-100 foto_slider"
+                                alt="...">
+                        @break
+                    @endforeach
+      
                 <div class="ad-actions">
-                    <button class="btn btn-danger">Удалить</button>
-                    <button class="btn btn-primary">Редактировать</button>
+                    <a href="/{{$animals->id}}/deleteAnimals" class="btn btn-danger">Удалить</a>
                 </div>
             </div>
 
         </div>
+        @endforeach
     </div>
     <x-footer></x-footer>
    

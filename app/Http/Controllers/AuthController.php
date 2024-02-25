@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\animalss;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -86,7 +87,18 @@ class AuthController extends Controller
     }
 
     public function personalCub() {
-        return view('personalCub');
+        $userAnimal=animalss::all()->where('users', Auth::user()->id);
+        return view('personalCub',['userAnimal' => $userAnimal]);
+    }
+    public function deleteAnimals(animalss $id) {
+        try { $id->foto_model()->delete();
+        $id->comment_id()->delete();
+        $id->delete();
+        return redirect()->back()->with('error', 'Вы удалили место!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Ошибка при удалении места: ' . $e->getMessage());
+        }
+      
     }
     public function Phone(Request $request) {
         $phone = $request->input('phone');

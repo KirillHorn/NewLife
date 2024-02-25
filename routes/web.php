@@ -20,6 +20,7 @@ use App\Http\Controllers\AnimalsController;
 
 Route::get('/', [Maincontroller::class , 'index']);
 
+Route::post('Subscription', [Maincontroller::class , 'Subscription']);
 Route::get('registration', [AuthController::class, 'sign_up']);
 Route::post('/sign_up_validate', [AuthController::class, 'sign_up_validate']);
 Route::get('auth', [AuthController::class, 'sign_in']);
@@ -28,6 +29,7 @@ Route::post('/sign_in_validate', [AuthController::class, 'sign_in_validate']);
 Route::get('personalCub', [AuthController::class, 'personalCub']);
 Route::post('/Phone', [AuthController::class, 'Phone']);
 Route::post('/Email', [AuthController::class, 'Email']);
+Route::get('/{id}/deleteAnimals', [AuthController::class, 'deleteAnimals']);
 
 Route::get('/AnimalsAdd', [AnimalsController::class, 'AnimalsAdd_view']);
 Route::post('/AnimalsAdd_validate', [AnimalsController::class, 'AnimalsAdd_validate']);

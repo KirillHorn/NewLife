@@ -151,11 +151,7 @@
                     <!-- Добавьте дополнительные опции по необходимости -->
                 </select>
             </div>
-            <div class="form-group">
-                <label for="searchText">Текст для поиска:</label>
-                <input type="text" class="form-control" id="searchText"
-                    placeholder="Введите текст для поиска">
-            </div>
+          
             <button type="submit" class="btn btn-warning" style="width: 20%; margin-left:40%;">Поиск
                 питомца</button>
         </form>
@@ -196,6 +192,23 @@
 
     </div>
 </section>
+
+@auth
+<section>
+    <div class="container">
+    <h1 class="text-center">Подпишись для рассылки!</h1>
+    <form method="POST" action="/Subscription">
+        @csrf
+        <div class="form-group">
+            <label for="animalSearch" class="text-light">Email</label>
+            <input type="email" name="email" class="form-control" id="email" >
+        </div>
+        <button type="submit" class="btn btn-warning block-center"
+            style="width: 20%; margin-left:40%;">Подписаться</button>
+    </form>
+    </div>
+</section>
+@endauth
 
 <x-footer/>
 </body>

@@ -47,7 +47,13 @@ class User extends Authenticatable
     ];
 
     public function animals_model() {
-        return $this->HasMany(animalss::class, 'users');
+        return $this->hasMany(animalss::class, 'users');
+    }
+
+    public function animalsCount()
+    {
+        return $this->animals_model()->count();
+
     }
 
     public function Comments() {
