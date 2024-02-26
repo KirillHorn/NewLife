@@ -69,7 +69,7 @@
         <!-- Факт 1 -->
         <div class="col-md-4" style="margin-top: 20px;">
             <div class="card card_info" style="border: 1px solid #eea236;">
-                <img src="/img/free-icon-pets-allowed-3372417.png" class="card-img-top" alt="Image 1">
+                <img src="/img/" class="card-img-top" alt="Image 1">
                 <div class="card-body">
                     <h5 class="card-title text-center">Помогли найти более 500 животных по всей стране!</h5>
 
@@ -79,7 +79,7 @@
         <!-- Факт 2 -->
         <div class="col-md-4" style="height:400px; margin-top: 20px;">
             <div class="card card_info">
-                <img src="/img/free-icon-pets-3574755.png" class="card-img-top" alt="Image 2">
+                <img src="/img/" class="card-img-top" alt="Image 2">
                 <div class="card-body">
                     <h5 class="card-title text-center">Более трех лет способствуем возвращению питомцев к хозяевам
                     </h5>
@@ -90,7 +90,7 @@
         <!-- Факт 3 -->
         <div class="col-md-4" style="margin-top: 20px;">
             <div class="card card_info" style="border: 1px solid #eea236;">
-                <img src="/img/free-icon-work-from-home-3015343.png" class="card-img-top" alt="Image 3">
+                <img src="/img/" class="card-img-top" alt="Image 3">
                 <div class="card-body">
                     <h5 class="card-title text-center">Все услуги оказываются бесплатно. Поможем найти вашего
                         питомца!</h5>
